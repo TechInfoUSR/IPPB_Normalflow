@@ -18,7 +18,7 @@ import NormalFlowForEmployee.PMSCyclePage;
 import NormalFlowForEmployee.addGoalPlan;
 import NormalFlowForEmployee.emp_assesment_Submission;
 import NormalFlowForEmployee.initiatePMSCycle;
-import NormalFlowForEmployee.manager_AddGoals;
+import NormalFlowForEmployee.Manager_AddGoals;
 
 public class employeeFlow_Test
 {

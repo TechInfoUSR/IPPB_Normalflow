@@ -25,15 +25,10 @@ public class One_to_One_manager
         return By.xpath("//a[contains(text(),'" + cycleName + "')]");
     }
 
-    
-    
-    
     public void selectGoalCycle(String cycleName) throws InterruptedException 
     {
         driver.findElement(dropdownToggle).click();
-        Thread.sleep(2000);
         driver.findElement(goalCycleLink(cycleName)).click();
-        Thread.sleep(1000);
     }
     
     public void navigateToEmployeeSelf() throws InterruptedException 
@@ -42,12 +37,9 @@ public class One_to_One_manager
     	
     	String employeeName= prop.getProperty("empname");
         driver.findElement(By.xpath("//span[contains(text(),'"+employeeName+"')]")).click();
-        Thread.sleep(2000);//span[contains(text(),'Somesh   (904) ')]
-        driver.findElement(By.xpath("//*[@id=\"s-tab01\"]/div/div[2]/div[6]/textarea")).sendKeys("1:1 meeting comment");
-        Thread.sleep(2000);
+        driver.findElement(By.xpath("(//textarea[@class=\"form-control one_to_one_meeting\"])[1]")).sendKeys("1:1 meeting comment");
         driver.findElement(By.xpath("(//a[@class=\"btn checkin-btn block-btn\"])[1]")).click();
-        
-    
+
     }
     public String isSelfsub() throws InterruptedException {
     	Thread.sleep(500);

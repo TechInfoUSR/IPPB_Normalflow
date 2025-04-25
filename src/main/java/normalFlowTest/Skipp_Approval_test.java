@@ -17,7 +17,7 @@ import NormalFlowForEmployee.PMSCyclePage;
 import NormalFlowForEmployee.Skipp_Approval;
 import NormalFlowForEmployee.addGoalPlan;
 import NormalFlowForEmployee.initiatePMSCycle;
-import NormalFlowForEmployee.manager_AddGoals;
+import NormalFlowForEmployee.Manager_AddGoals;
 
 public class Skipp_Approval_test 
 {
@@ -25,7 +25,7 @@ public class Skipp_Approval_test
 	addGoalPlan addGoalPlan;
 	PMSCyclePage PMSCyclePage;
 	initiatePMSCycle initiatePMSCycle;
-	manager_AddGoals manager_AddGoals;
+	Manager_AddGoals manager_AddGoals;
 	Skipp_Approval Skipp_Approval;
     DriverFactory df;
     ConfigpropReader cp;

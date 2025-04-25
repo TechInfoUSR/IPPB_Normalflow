@@ -34,7 +34,7 @@ import org.testng.xml.XmlSuite;
 
 import ConfigReder.ConfigpropReader;
 import Factory.DriverFactory;
-import NormalFlowForEmployee.AddEmployeetoDB;
+
 import NormalFlowForEmployee.addGoalPlan;
 
 import org.apache.commons.mail.DefaultAuthenticator;
@@ -55,7 +55,7 @@ public class CustomReportListener implements IReporter{
     DriverFactory df;
     ConfigpropReader cp;
     Properties prop;
-    AddEmployeetoDB AddEmployeetoDB;
+
 
     @BeforeClass
     public void setUp() {
@@ -65,7 +65,6 @@ public class CustomReportListener implements IReporter{
         driver = df.initDriver("chrome", prop);
         addGoalPlan = new addGoalPlan(driver);
         addGoalPlan.login(prop.getProperty("EmpUN"), prop.getProperty("Emppass"));
-        AddEmployeetoDB = new AddEmployeetoDB(driver, prop);
     }
 
 

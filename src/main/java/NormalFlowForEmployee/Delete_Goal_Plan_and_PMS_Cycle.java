@@ -21,10 +21,14 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 	public void DeletionPMSCycle() throws InterruptedException 
 	{
 		JavascriptExecutor Srollup = (JavascriptExecutor) driver;
-        Srollup.executeScript("window.scrollBy(0,1900)");
-        Thread.sleep(2000);
-		driver.findElement(By.xpath("//h3[contains(text(),'Performance Review Cycle Management')]")).click();
-		Thread.sleep(2000);
+        Srollup.executeScript("window.scrollBy(0,1800)");
+
+		WebElement PMS=driver.findElement(By.xpath("(//h3[contains(text(),'Performance Review Cycle Management')])[1]"));
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("arguments[0].scrollIntoView(true);", PMS);
+
+
+		PMS.click();
 		String GoalPlanName = prop.getProperty("GoalPalnName");
         WebElement tbody = driver.findElement(By.cssSelector("tbody[role='alert']"));
 
@@ -43,9 +47,7 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 			{
 			System.out.println(test);
 			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
-			Thread.sleep(2000);
 			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
-			Thread.sleep(2000);
 			break;
 			}
 		}
@@ -57,7 +59,6 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 	public void DeletionGoalPlan() throws InterruptedException 
 	{
 		driver.findElement(By.xpath("//a[contains(text(),'Goal Plan')]")).click();
-		Thread.sleep(2000);
 		String GoalPlanName = prop.getProperty("GoalPalnName");
         WebElement tbody = driver.findElement(By.cssSelector("tbody[role='alert']"));
         List<WebElement> rows = tbody.findElements(By.tagName("tr"));
@@ -74,7 +75,6 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 			{
 			System.out.println(test);
 			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
-			Thread.sleep(2000);
 			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
 			Thread.sleep(500);
 			break;

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import ConfigReder.ConfigpropReader;
 import Factory.DriverFactory;
-import NormalFlowForEmployee.AddEmployeetoDB;
+
 import NormalFlowForEmployee.Delete_Goal_Plan_and_PMS_Cycle;
 import NormalFlowForEmployee.Delete_the_PMS_Cycle;
 import NormalFlowForEmployee.Finalize_Employee_Appraisal;
@@ -20,7 +20,7 @@ import NormalFlowForEmployee.Skipp_Approval;
 import NormalFlowForEmployee.addGoalPlan;
 import NormalFlowForEmployee.emp_assesment_Submission;
 import NormalFlowForEmployee.initiatePMSCycle;
-import NormalFlowForEmployee.manager_AddGoals;
+import NormalFlowForEmployee.Manager_AddGoals;
 import NormalFlowForEmployee.manager_Sumitt_Assesment_To_Skip;
 
 public class CLasstoTest {
@@ -31,11 +31,10 @@ public class CLasstoTest {
     Properties prop;
     WebDriver driver;
     
-    
-    AddEmployeetoDB AddEmployeetoDB;
+
 	PMSCyclePage PMSCyclePage;
 	initiatePMSCycle initiatePMSCycle;
-	manager_AddGoals manager_AddGoals;
+	Manager_AddGoals manager_AddGoals;
 	emp_assesment_Submission emp_assesment_Submission;
 	manager_Sumitt_Assesment_To_Skip manager_Sumitt_Assesment_To_Skip;
 	Skipp_Approval Skipp_Approval;

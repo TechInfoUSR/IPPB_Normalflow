@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
 
 import ConfigReder.ConfigpropReader;
 import Factory.DriverFactory;
-import NormalFlowForEmployee.AddEmployeetoDB;
+
 import NormalFlowForEmployee.addGoalPlan;
 public class Email_test_class {
 	 private WebDriver driver;
@@ -33,7 +33,7 @@ public class Email_test_class {
 	    ConfigpropReader cp;
 	    Properties prop;
 	  
-	    AddEmployeetoDB AddEmployeetoDB;
+
 	    @BeforeClass
 	    public void setUp() {
 	    	  cp = new ConfigpropReader();
@@ -42,7 +42,7 @@ public class Email_test_class {
 	          driver = df.initDriver("chrome", prop);
 	          addGoalPlan = new addGoalPlan(driver);
 	          addGoalPlan.login(prop.getProperty("EmpUN"), prop.getProperty("Emppass"));
-	          AddEmployeetoDB =new AddEmployeetoDB(driver, prop);
+
 	      }
 
 	    @Test

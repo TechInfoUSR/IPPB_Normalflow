@@ -6,24 +6,23 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import ConfigReder.ConfigpropReader;
 import Factory.DriverFactory;
+import NormalFlowForEmployee.Manager_AddGoals;
 import NormalFlowForEmployee.PMSCyclePage;
 import NormalFlowForEmployee.addGoalPlan;
 import NormalFlowForEmployee.emp_assesment_Submission;
 import NormalFlowForEmployee.initiatePMSCycle;
-import NormalFlowForEmployee.manager_AddGoals;
 
 public class managerFlow_Test {
 	addGoalPlan addGoalPlan;
 	PMSCyclePage PMSCyclePage;
 	initiatePMSCycle initiatePMSCycle;
-	manager_AddGoals manager_AddGoals;
+	Manager_AddGoals manager_AddGoals;
 	emp_assesment_Submission emp_assesment_Submission;
     DriverFactory df;
     ConfigpropReader cp;
@@ -42,7 +41,7 @@ public class managerFlow_Test {
           
         PMSCyclePage = new PMSCyclePage(driver, prop);
         initiatePMSCycle = new initiatePMSCycle(driver, prop);
-        manager_AddGoals = new manager_AddGoals(driver, prop);
+        manager_AddGoals = new Manager_AddGoals(driver, prop);
         emp_assesment_Submission = new emp_assesment_Submission(driver, prop);
     
     }
@@ -61,14 +60,14 @@ public class managerFlow_Test {
   
 
 
-//  @AfterTest
-//  void tearDown() 
-//  {
-//      if (driver != null) 
-//      {
-//          driver.quit();
-//      }
-//  }
+  @AfterTest
+  void tearDown() 
+  {
+      if (driver != null) 
+      {
+          driver.quit();
+      }
+  }
 
 
 

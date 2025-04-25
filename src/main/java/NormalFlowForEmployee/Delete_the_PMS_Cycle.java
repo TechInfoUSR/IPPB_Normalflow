@@ -24,7 +24,7 @@ public void Deletion() throws InterruptedException {
 	
     String goal = prop.getProperty("GoalPalnName");
     JavascriptExecutor Srollup = (JavascriptExecutor) driver;
-    Srollup.executeScript("window.scrollBy(0,1700)");
+    Srollup.executeScript("window.scrollBy(0,1800)");
     driver.findElement(By.xpath("//h3[contains(text(),'PMS Program Management')][1]")).click();
     WebElement drop = driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]"));
 //    driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]")).click();
@@ -106,9 +106,14 @@ public void Deletion() throws InterruptedException {
 	
    void ResetEmpAssesmet() throws InterruptedException 
    {
-	   driver.findElement(By.xpath("/html/body/div/div[5]/div/div/div/div[2]/div/section/div[2]/b/div/table/tbody/tr/td[1]/div/ul[1]/li[1]/a[2]/b")).click();
-	   
-	   Thread.sleep(1000);
+	   driver.findElement(By.xpath("/html/body/div/div[5]/div/div/div/div[2]/div/section/div[2]/b/div[2]/table/tbody/tr[1]/td[1]/div/ul[1]/li[1]/a[2]/b")).click();
+
+
+	   WebElement element = driver.findElement(By.xpath("(//b[contains(text(),\"Reset Employee's Assessment \")])[1]"));
+//	   ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+
+
 	   driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
 //	   driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/button[1]")).click();
 	   Thread.sleep(1000);

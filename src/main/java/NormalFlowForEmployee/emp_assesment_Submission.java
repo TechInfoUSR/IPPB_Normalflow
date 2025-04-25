@@ -30,13 +30,9 @@ public class emp_assesment_Submission {
     	  
 		public void selectGoalCycle(String cycleName) throws InterruptedException 
           {
-    		  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
               driver.findElement(dropdownToggle).click();
               driver.findElement(By.xpath("//a[contains(text(),'"+cycleName+"')]")).click();
-//              driver.findElement(goalCycleLink(cycleName)).click();
-              driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
               driver.findElement(By.xpath("//span[@class=\"ml-4\"]")).click();
-                         
               
           //  FOR Clicking on Drop down  
               WebElement element = driver.findElement(By.xpath("(//div[@class=\"card list-view-card\"])[1]")); 
@@ -55,12 +51,8 @@ public class emp_assesment_Submission {
               System.out.println(NoofGoal);
               for (int i=1 ;i<=NoofGoal;i++) 
               {
-            	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-              
-            	  Random random = new Random();
-
+                Random random = new Random();
               	int randomNumber = random.nextInt(100) + 1;
-
               	System.out.println("Random number between 1 and 100: " + randomNumber);
               
               	updateProgressBar(driver, "(//input[@type=\"range\"])[1]", randomNumber);
@@ -69,12 +61,23 @@ public class emp_assesment_Submission {
            		String Employee_comment =Employee_cmt + i;
                 EmployeeComment(driver,"(//div[@class=\"dropdown\"])[2]",Employee_comment, "(//a[@class=\"view-link mt-h cs-modal-btn ng-binding ng-scope\"]) [("+i+")]");
                 Thread.sleep(1000);
+
+                    // Update the progress for overall and give comment
+//                  updateProgressBar(driver, "(//input[@type=\"range\"])[4]", randomNumber);
+//                  Thread.sleep(1000);
+                  driver.findElement(By.id("employeComment")).sendKeys("Overall Employee CMT");
+
               }
-           driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-           driver.findElement(By.xpath("//a[@ng-click=\"submitSelfPerformance(1)\"]")).click();
+
+          WebElement Submit = driver.findElement(By.xpath("//a[@ng-click=\"submitSelfPerformance(1)\"]"));
+
+              JavascriptExecutor Srollup = (JavascriptExecutor) driver;
+              Srollup.executeScript("arguments[0].scrollIntoView(true);", Submit);
+
+              Submit.click();
            Thread.sleep(500); 
            driver.findElement(By.xpath("//button[contains(text(),'OK')]")).click();
-           Thread.sleep(500); 
+           Thread.sleep(500);
            
           }
     	  private static void updateProgressBar(WebDriver driver, String cssSelector, int progress) 
