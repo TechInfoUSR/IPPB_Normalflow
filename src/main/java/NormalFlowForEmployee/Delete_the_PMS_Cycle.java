@@ -52,9 +52,9 @@ public void Deletion() throws InterruptedException {
     	String actualText = driver.findElement(By.xpath("/html/body/div/div[5]/div/div/div/div[2]/div/section/div[2]/b/div/table/tbody/tr[1]/td[1]/div/ul[2]/li/a/b")).getText();
 	    System.out.println(actualText);
 	    String actualText1 = driver.findElement(By.xpath("/html/body/div/div[5]/div/div/div/div[2]/div/section/div[2]/b/div/table/tbody/tr/td[1]/div/ul[1]/li[2]/a/b")).getText();
-	    System.out.println(actualText);
+	    System.out.println(actualText1);
 	    String ResetEmpAssesmet = driver.findElement(By.xpath("/html/body/div/div[5]/div/div/div/div[2]/div/section/div[2]/b/div/table/tbody/tr/td[1]/div/ul[1]/li[1]/a[2]/b")).getText();
-	    System.out.println(actualText);
+	    System.out.println(ResetEmpAssesmet);
 	    
 	    String exp = "Remove Employee from this PMS Cycle";
 	    String rmtex = "Reset Manager's Assessment (without deleting contents filled already by emp. and manager)";

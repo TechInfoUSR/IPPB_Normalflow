@@ -14,14 +14,14 @@ import NormalFlowForEmployee.AddNewGoalPlan;
 import NormalFlowForEmployee.PMSCyclePage;
 import NormalFlowForEmployee.emp_assesment_Submission;
 import NormalFlowForEmployee.initiatePMSCycle;
-import NormalFlowForEmployee.manager_AddGoals;
+import NormalFlowForEmployee.Manager_AddGoals;
 import Utils.UniformClasess;
 
 public class AddNewGoalPlan_Test extends BaseClasses{
 	AddNewGoalPlan addNewGoalPlan;
 	PMSCyclePage PMSCyclePage;
 	initiatePMSCycle initiatePMSCycle;
-	manager_AddGoals manager_AddGoals;
+	Manager_AddGoals manager_AddGoals;
 	emp_assesment_Submission emp_assesment_Submission;
 	UniformClasess UniformClasess;
 
@@ -34,7 +34,7 @@ public class AddNewGoalPlan_Test extends BaseClasses{
 		addNewGoalPlan = new AddNewGoalPlan(driver);
 		PMSCyclePage = new PMSCyclePage(driver, prop);
 		initiatePMSCycle = new initiatePMSCycle(driver, prop);
-		manager_AddGoals = new manager_AddGoals(driver, prop);
+		manager_AddGoals = new Manager_AddGoals(driver, prop);
 		emp_assesment_Submission = new emp_assesment_Submission(driver, prop);
 		UniformClasess =new UniformClasess(driver,prop);
 		UniformClasess.login(prop.getProperty("HrUsername"), prop.getProperty("HrPassword"));

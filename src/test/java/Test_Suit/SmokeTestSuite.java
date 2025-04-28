@@ -9,11 +9,7 @@ import java.util.Properties;
 import NormalFlowForEmployee.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import ConfigReder.ConfigpropReader;
 import Factory.DriverFactory;

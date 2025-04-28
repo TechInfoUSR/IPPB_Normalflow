@@ -71,11 +71,7 @@ public class CustomReportListener implements IReporter{
     // Instance variable to store the output directory
     private String outputDirectory;
 
-    
 
-    void Screenshort() {
-    	
-    }
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         // Store the output directory in the instance variable
@@ -165,7 +161,7 @@ public class CustomReportListener implements IReporter{
             email.setAuthenticator(new DefaultAuthenticator("noreply@usrinfotech.com", "]#hoPoQxTqYr"));
             email.setSSLOnConnect(true);
             email.setFrom("noreply@usrinfotech.com");
-            email.setSubject("Greyt HR Instance Test Report");
+            email.setSubject("'IPPB' Test Report");
             email.setHtmlMsg("Test Report: "+reportContent.toString());
                   
             String[] recipients = {"Hanumanth@usrinfotech.com",
@@ -193,40 +189,5 @@ public class CustomReportListener implements IReporter{
 		CustomReportListener.subject=subject;
 	}
 
-    
-//    public static void sendEmail(String to, String subject, String body, String attachmentPath) {
-//        
-//        Session session = Session.getInstance(properties, new Authenticator() {
-//            protected PasswordAuthentication getPasswordAuthentication() {
-//                return new PasswordAuthentication(from, password);
-//            }
-//        });
-//    	
-//    	
-//    try {
-//        Message message = new MimeMessage(session);
-//        message.setFrom(new InternetAddress(from));
-//        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-//        message.setSubject(subject);
-//
-//        MimeBodyPart messageBodyPart = new MimeBodyPart();
-//        messageBodyPart.setText(body);
-//
-//        MimeBodyPart attachmentPart = new MimeBodyPart();
-//        attachmentPart.attachFile(attachmentPath);
-//
-//        Multipart multipart = new MimeMultipart();
-//        multipart.addBodyPart(messageBodyPart);
-//        multipart.addBodyPart(attachmentPart);
-//
-//        message.setContent(multipart);
-//
-//        Transport.send(message);
-//
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
-//    
-//    }
     
 }

@@ -43,9 +43,9 @@ public class addGoalPlan {
         Srollup.executeScript("window.scrollBy(0,1800)");       
         driver.findElement(goalPlanManagementLink).click();        
         driver.findElement(addGoalPlanButton).click();
-        Thread.sleep(200);
+        Thread.sleep(1000);
         driver.findElement(goalPlanNameField).sendKeys(goalPlanName);
-
+        Thread.sleep(1500);
 
         LocalDate currentDate = LocalDate.now();
         

@@ -1,22 +1,27 @@
 package NormalFlowForEmployee;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import Utils.ExplicitWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class emp_assesment_Submission {
 	  private WebDriver driver;
       private Properties prop;
-     
+      ExplicitWait ExplicitWait;
+
+
     		private By dropdownToggle = By.xpath("//a[@class='dropdown-toggle']");
     		private By goalCycleLink(String cycleName) 
     		{
@@ -110,7 +115,12 @@ public class emp_assesment_Submission {
     		  Thread.sleep(1000);
     	  }
     	  public String isSelfsub() throws InterruptedException {
-    		  Thread.sleep(5000);
-    		 return driver.findElement(By.xpath("//span[contains(text(),'Self Review Completed')]")).getText();
+
+              By Isvisible = (By.xpath("//span[contains(text(),'Self Review Completed')]"));
+
+              WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+              WebElement Exp= wait.until(ExpectedConditions.visibilityOfElementLocated(Isvisible));
+
+    		 return Exp.getText();
     	  }
     }

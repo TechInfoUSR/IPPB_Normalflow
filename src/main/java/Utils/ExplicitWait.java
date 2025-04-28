@@ -18,7 +18,13 @@ public class ExplicitWait {
 	    ConfigpropReader cp;
 	    Properties prop;
 	    WebDriver driver;
-	
+
+	public ExplicitWait(WebDriver driver) {
+		this.driver = driver;
+	}
+
+
+
 	public WebElement waitForElementVisiblity(By locator) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 	    return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
