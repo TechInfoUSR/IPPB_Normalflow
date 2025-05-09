@@ -35,55 +35,63 @@ public class emp_assesment_Submission {
     	  
 		public void selectGoalCycle(String cycleName) throws InterruptedException 
           {
-              driver.findElement(dropdownToggle).click();
-              driver.findElement(By.xpath("//a[contains(text(),'"+cycleName+"')]")).click();
-              driver.findElement(By.xpath("//span[@class=\"ml-4\"]")).click();
-              
-          //  FOR Clicking on Drop down  
-              WebElement element = driver.findElement(By.xpath("(//div[@class=\"card list-view-card\"])[1]")); 
-              // Use JavaScriptExecutor to click on the element
-              JavascriptExecutor executor = (JavascriptExecutor) driver;
-              executor.executeScript("arguments[0].click();", element);
-              Thread.sleep(1000);
-            
-     
-//              WebElement listContainer  = driver.findElement(By.id("categ105"));
-              
-              WebElement listContainer  = driver.findElement(By.xpath("(//div[@class=\"slider-box\"]//input[@type=\"range\"])[3]"));
-              
-              List<WebElement> noofGoals =listContainer.findElements(By.xpath("//ul[@class=\"flex flex-btn py-1 onhover-section ng-scope\"]"));
-              int NoofGoal = noofGoals.size();
-              System.out.println(NoofGoal);
-              for (int i=1 ;i<=NoofGoal;i++) 
-              {
-                Random random = new Random();
-              	int randomNumber = random.nextInt(100) + 1;
-              	System.out.println("Random number between 1 and 100: " + randomNumber);
-              
-              	updateProgressBar(driver, "(//input[@type=\"range\"])[1]", randomNumber);
-           		Thread.sleep(1000);
-           		String Employee_cmt = "EmpCmt";
-           		String Employee_comment =Employee_cmt + i;
-                EmployeeComment(driver,"(//div[@class=\"dropdown\"])[2]",Employee_comment, "(//a[@class=\"view-link mt-h cs-modal-btn ng-binding ng-scope\"]) [("+i+")]");
-                Thread.sleep(1000);
+              try {
+                  String Statuss = driver.findElement(By.xpath("//span[contains(text(),'Appraisal Initiated')]")).getText();
+                  Statuss.equals("Appraisal Initiated");
 
-                    // Update the progress for overall and give comment
+                  driver.findElement(dropdownToggle).click();
+                  driver.findElement(By.xpath("//a[contains(text(),'" + cycleName + "')]")).click();
+                  driver.findElement(By.xpath("//span[@class=\"ml-4\"]")).click();
+
+                  //  FOR Clicking on Drop down
+                  WebElement element = driver.findElement(By.xpath("(//div[@class=\"card list-view-card\"])[1]"));
+                  // Use JavaScriptExecutor to click on the element
+                  JavascriptExecutor executor = (JavascriptExecutor) driver;
+                  executor.executeScript("arguments[0].click();", element);
+                  Thread.sleep(1000);
+
+
+//              WebElement listContainer  = driver.findElement(By.id("categ105"));
+
+                  WebElement listContainer = driver.findElement(By.xpath("(//div[@class=\"slider-box\"]//input[@type=\"range\"])[3]"));
+
+                  List<WebElement> noofGoals = listContainer.findElements(By.xpath("//ul[@class=\"flex flex-btn py-1 onhover-section ng-scope\"]"));
+                  int NoofGoal = noofGoals.size();
+                  System.out.println(NoofGoal);
+                  for (int i = 1; i <= NoofGoal; i++) {
+                      Random random = new Random();
+                      int randomNumber = random.nextInt(100) + 1;
+                      System.out.println("Random number between 1 and 100: " + randomNumber);
+
+                      updateProgressBar(driver, "(//input[@type=\"range\"])[1]", randomNumber);
+                      Thread.sleep(1000);
+                      String Employee_cmt = "EmpCmt";
+                      String Employee_comment = Employee_cmt + i;
+                      EmployeeComment(driver, "(//div[@class=\"dropdown\"])[2]", Employee_comment, "(//a[@class=\"view-link mt-h cs-modal-btn ng-binding ng-scope\"]) [(" + i + ")]");
+                      Thread.sleep(1000);
+
+                      // Update the progress for overall and give comment
 //                  updateProgressBar(driver, "(//input[@type=\"range\"])[4]", randomNumber);
 //                  Thread.sleep(1000);
-                  driver.findElement(By.id("employeComment")).sendKeys("Overall Employee CMT");
+                      driver.findElement(By.id("employeComment")).sendKeys("Overall Employee CMT");
+                  }
+
+
+                  WebElement Submit = driver.findElement(By.xpath("//a[@ng-click=\"submitSelfPerformance(1)\"]"));
+
+                  JavascriptExecutor Srollup = (JavascriptExecutor) driver;
+                  Srollup.executeScript("arguments[0].scrollIntoView(true);", Submit);
+
+                  Submit.click();
+                  Thread.sleep(500);
+                  driver.findElement(By.xpath("//button[contains(text(),'OK')]")).click();
+                  Thread.sleep(500);
 
               }
+              catch (Exception e) {
+                  System.out.println("Assessment completed");
+              }
 
-          WebElement Submit = driver.findElement(By.xpath("//a[@ng-click=\"submitSelfPerformance(1)\"]"));
-
-              JavascriptExecutor Srollup = (JavascriptExecutor) driver;
-              Srollup.executeScript("arguments[0].scrollIntoView(true);", Submit);
-
-              Submit.click();
-           Thread.sleep(500); 
-           driver.findElement(By.xpath("//button[contains(text(),'OK')]")).click();
-           Thread.sleep(500);
-           
           }
     	  private static void updateProgressBar(WebDriver driver, String cssSelector, int progress) 
     	  {  
@@ -100,8 +108,7 @@ public class emp_assesment_Submission {
 
 	      }
     	  private static void EmployeeComment(WebDriver driver, String cssSelector, String Empcmt, String ReviewBTN) throws InterruptedException 
-    	  { 
-    		  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	  {
     		  driver.findElement(By.xpath(cssSelector)).click();
     		  Thread.sleep(500);
     		  driver.findElement(By.xpath(ReviewBTN)).click();
@@ -112,7 +119,6 @@ public class emp_assesment_Submission {
     		  driver.findElement(By.xpath("//*[@id=\"nggDiv\"]/div[16]/div/div[2]/form[1]/div[4]/div[1]/button[2]")).click();
  
     		  driver.findElement(By.xpath("//*[@id=\"nggDiv\"]/div[16]/div/div[2]/form[1]/div[4]/div[1]/button[1]")).click();
-    		  Thread.sleep(1000);
     	  }
     	  public String isSelfsub() throws InterruptedException {
 

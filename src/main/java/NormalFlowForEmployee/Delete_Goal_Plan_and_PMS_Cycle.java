@@ -85,7 +85,7 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 		
 	}
 	  public boolean isPMSDeleted() throws InterruptedException {
-		  Thread.sleep(200);
+
 		 return driver.findElement(By.xpath("//div[contains(text(),'Performance Review Cycle deleted successfully ')]")).isDisplayed();
 	  }
 	  public boolean isGoalPlanDeleted() throws InterruptedException {

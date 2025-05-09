@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="IPPB Suite">
+
+<listeners>
+    <listener class-name="normalFlowTest.CustomReportListener" />
+    <!--> execute Normal flow / Smoke testing<--> 
+    <listener class-name="normalFlowTest.TestFailureListener" />
+</listeners>
+
+  <test thread-count="5" name="IPPB Test">
+    <classes>
+      <class name="Test_Suit.SmokeTestSuite"/>
+    </classes>
+  </test> <!-- IPPB Test -->
+</suite> <!-- IPPB Suite -->
