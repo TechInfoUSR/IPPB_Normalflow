@@ -35,6 +35,8 @@ public class emp_assesment_Submission {
     	  
 		public void selectGoalCycle(String cycleName) throws InterruptedException 
           {
+              Thread.sleep(5000);
+
               try {
                   String Statuss = driver.findElement(By.xpath("//span[contains(text(),'Appraisal Initiated')]")).getText();
                   Statuss.equals("Appraisal Initiated");
@@ -88,7 +90,7 @@ public class emp_assesment_Submission {
                   Thread.sleep(500);
 
               }
-              catch (Exception e) {
+              finally {
                   System.out.println("Assessment completed");
               }
 
@@ -122,8 +124,14 @@ public class emp_assesment_Submission {
     	  }
     	  public String isSelfsub() throws InterruptedException {
 
-              By Isvisible = (By.xpath("//span[contains(text(),'Self Review Completed')]"));
+                Thread.sleep(4000);
+              WebElement element = driver.findElement(By.xpath("(//div[@class=\"card list-view-card\"])[1]"));
+              // Use JavaScriptExecutor to click on the element
+              JavascriptExecutor executor = (JavascriptExecutor) driver;
+              executor.executeScript("arguments[0].click();", element);
 
+
+              By Isvisible = (By.xpath("//span[contains(text(),'Self Review Completed')]"));
               WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
               WebElement Exp= wait.until(ExpectedConditions.visibilityOfElementLocated(Isvisible));
 

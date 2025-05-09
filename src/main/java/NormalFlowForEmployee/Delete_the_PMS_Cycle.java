@@ -25,6 +25,7 @@ public void Deletion() throws InterruptedException {
     String goal = prop.getProperty("GoalPalnName");
     JavascriptExecutor Srollup = (JavascriptExecutor) driver;
     Srollup.executeScript("window.scrollBy(0,1800)");
+	Thread.sleep(2000);
     driver.findElement(By.xpath("//h3[contains(text(),'PMS Program Management')][1]")).click();
     WebElement drop = driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]"));
 //    driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]")).click();
