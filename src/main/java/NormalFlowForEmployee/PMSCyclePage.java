@@ -31,9 +31,10 @@ public class PMSCyclePage
 	        driver.findElement(performanceReviewCycleLink).click();
 	        driver.findElement(addButton).click();
 	        driver.findElement(goalPlanDropdown).click();
-	        WebElement selectGoalPlan = driver.findElement(goalPlanDropdown);
-	        Select select_goalplan = new Select(selectGoalPlan);
-	        select_goalplan.selectByVisibleText(prop.getProperty("GoalPalnName"));
+			driver.findElement(goalPlanDropdown).sendKeys(prop.getProperty("GoalPalnName"));
+//	        WebElement selectGoalPlan = driver.findElement(goalPlanDropdown);
+//	        Select select_goalplan = new Select(selectGoalPlan);
+//	        select_goalplan.selectByVisibleText(prop.getProperty("GoalPalnName"));
 
 	        driver.findElement(ratingScaleField).click();
 	        driver.findElement(ratingScaleField).sendKeys(prop.getProperty("RatingScale"));

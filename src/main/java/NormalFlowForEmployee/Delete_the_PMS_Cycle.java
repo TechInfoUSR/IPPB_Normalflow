@@ -28,9 +28,12 @@ public void Deletion() throws InterruptedException {
 	Thread.sleep(2000);
     driver.findElement(By.xpath("//h3[contains(text(),'PMS Program Management')][1]")).click();
     WebElement drop = driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]"));
+
+	drop.sendKeys(goal);
 //    driver.findElement(By.xpath("//select[@ng-model=\"encReviewCycleId\"]")).click();
-    Select S = new Select(drop);
-    S.selectByVisibleText(goal);
+
+//    Select S = new Select(drop);
+//    S.selectByVisibleText(goal);
     
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     

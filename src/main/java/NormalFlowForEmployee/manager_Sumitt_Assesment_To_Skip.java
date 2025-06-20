@@ -84,9 +84,9 @@ public class manager_Sumitt_Assesment_To_Skip {
 
 
 //              Thread.sleep(1000);
-				driver.findElement(By.xpath("(//textarea[@id=\"goal_checkin_commentsa\"])[2]")).sendKeys("MgrCMT");
+//				driver.findElement(By.xpath("(//textarea[@id=\"goal_comments1\"])")).sendKeys("MgrCMT");
 //              Thread.sleep(200);
-				driver.findElement(By.xpath("//button[@ng-click=\"submitPerformanceForAuthorizeApprove()\"]")).click();
+				driver.findElement(By.xpath("//button[@id='submitPerformanceBtn']")).click();
 
 
 				By OkBtn = (By.xpath("//button[contains(text(),'OK')]"));

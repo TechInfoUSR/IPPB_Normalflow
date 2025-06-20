@@ -30,27 +30,36 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 
 		PMS.click();
 		String GoalPlanName = prop.getProperty("GoalPalnName");
-        WebElement tbody = driver.findElement(By.cssSelector("tbody[role='alert']"));
 
-        // Find all <tr> elements within the <tbody>
-        List<WebElement> rows = tbody.findElements(By.tagName("tr"));
+		driver.findElement(By.xpath("(//input[@class=\"form-control\"])[5]")).sendKeys(GoalPlanName);
 
-        // Get the count of <tr> elements
-        int rowCount = rows.size();
-        System.out.println("Number of rows in the table: " + rowCount);
-        
-        
-		for (int i = 1;i<=rowCount ;i++) 
-		{
-			String test=driver.findElement(By.xpath("//tr["+i+"]//span[contains(text(),'"+GoalPlanName+"')]")).getText();
-			if(test.equals(GoalPlanName)) 
-			{
-			System.out.println(test);
-			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
-			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
-			break;
-			}
-		}
+
+		driver.findElement(By.xpath("//tr//a[@title=\"Delete\"]")).click();
+		driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
+
+
+
+//        WebElement tbody = driver.findElement(By.cssSelector("tbody[role='alert']"));
+//
+//        // Find all <tr> elements within the <tbody>
+//        List<WebElement> rows = tbody.findElements(By.tagName("tr"));
+//
+//        // Get the count of <tr> elements
+//        int rowCount = rows.size();
+//        System.out.println("Number of rows in the table: " + rowCount);
+//
+//
+//		for (int i = 1;i<=rowCount ;i++)
+//		{
+//			String test=driver.findElement(By.xpath("//tr["+i+"]//span[contains(text(),'"+GoalPlanName+"')]")).getText();
+//			if(test.equals(GoalPlanName))
+//			{
+//			System.out.println(test);
+//			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
+//			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
+//			break;
+//			}
+//		}
 		
 
 	}
@@ -60,27 +69,26 @@ public class Delete_Goal_Plan_and_PMS_Cycle {
 	{
 		driver.findElement(By.xpath("//a[contains(text(),'Goal Plan')]")).click();
 		String GoalPlanName = prop.getProperty("GoalPalnName");
-        WebElement tbody = driver.findElement(By.cssSelector("tbody[role='alert']"));
-        List<WebElement> rows = tbody.findElements(By.tagName("tr"));
 
-        int rowCount = rows.size();
-        System.out.println("Number of rows in the table: " + rowCount);
-        
-        
-		for (int i = 1;i<=rowCount ;i++) 
-		{
-			String test=driver.findElement(By.xpath("//tr["+i+"]//td[contains(text(),'"+GoalPlanName+"')]")).getText();
-			System.out.println(test);
-			if(test.equals(GoalPlanName)) 
-			{
-			System.out.println(test);
-			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
-			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
-			Thread.sleep(500);
-			break;
-			}
+       driver.findElement(By.xpath("(//input[@class=\"form-control\"])[5]")).sendKeys(GoalPlanName);
+	   driver.findElement(By.xpath("//a[@title=\"Delete\"]")).click();
+	   driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
 
-		}
+
+//		for (int i = 1;i<=rowCount ;i++)
+//		{
+//			String test=driver.findElement(By.xpath("//tr["+i+"]//td[contains(text(),'"+GoalPlanName+"')]")).getText();
+//			System.out.println(test);
+//			if(test.equals(GoalPlanName))
+//			{
+//			System.out.println(test);
+//			driver.findElement(By.xpath("//tr["+i+"]//a[@title=\"Delete\"]")).click();
+//			driver.findElement(By.xpath("//button[@data-bb-handler=\"confirm\"]")).click();
+//			Thread.sleep(500);
+//			break;
+//			}
+//
+//		}
 		
 		
 	}

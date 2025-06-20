@@ -61,23 +61,34 @@ public class initiatePMSCycle
 	{
 		driver.findElement(By.xpath("//img[@src=\"asssets/media/images/cute-clipart/30/000000/ruler.png\"]")).click();
 
-		driver.findElement(By.xpath("(//input[@name=\"flowConfigShowType\"])[2]")).click();
+		driver.findElement(By.xpath("(//input[@name=\"flowConfigShowType\"])[1]")).click();
 
-		driver.findElement(By.xpath("//*[@id=\"flow_config_form\"]/table/tbody/tr[23]/td/button")).click();
+		driver.findElement(By.xpath("//*[@id=\"flow_config_form\"]/table/tbody/tr[38]/td/button")).click();
 
-		WebElement Overall=driver.findElement(By.id("toggle_overallempmgrcomments"));
-		if(Overall.isSelected()){
-			System.out.println("Already enabled");
-		}
-		else {
-			Overall.click();
-			driver.findElement(By.id("employee_overall_comments")).click();
-			driver.findElement(By.id("manager_overall_comments")).click();
-			System.out.println("Now enabled");
-		}
+
+
+//		WebElement Overall=driver.findElement(By.id("terminateflow"));
+//		if(Overall.isSelected()){
+//			System.out.println("Already enabled");
+//		}
+//		else {
+//			Overall.click();
+//			driver.findElement(By.id("employee_overall_comments")).click();
+//			driver.findElement(By.id("manager_overall_comments")).click();
+//			System.out.println("Now enabled");
+//		}
+
+
+		driver.findElement(By.id("terminateflow")).click();
+
+		driver.findElement(By.id("toggle_overallempmgrcomments")).click();
+
+
+		driver.findElement(By.id("employee_overall_comments")).click();
+		driver.findElement(By.id("manager_overall_comments")).click();
 
 		driver.findElement(By.id("save_flow_config")).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 
 
