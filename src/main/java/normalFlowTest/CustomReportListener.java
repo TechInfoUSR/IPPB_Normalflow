@@ -47,7 +47,7 @@ import java.io.IOException;
 
 public class CustomReportListener implements IReporter{
 
-	   private static String attachmentPath,subject;
+	private static String attachmentPath,subject;
 	   
 	
     private WebDriver driver;
@@ -104,9 +104,8 @@ public class CustomReportListener implements IReporter{
     }
 
     public void sendEmailWithReport() throws EmailException {
-        if (outputDirectory != null) {
-       	 long systemTime = System.currentTimeMillis();
-         Time time = new Time(systemTime);
+        if (outputDirectory != null) 
+        {
          Date currentDate = new Date();
          SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
          System.out.println(dateFormat.format(currentDate));
@@ -164,12 +163,13 @@ public class CustomReportListener implements IReporter{
             email.setSubject("'IPPB' Test Report");
             email.setHtmlMsg("Test Report: "+reportContent.toString());
                   
-            String[] recipients = {"Hanumanth@usrinfotech.com",
+            String[] recipients = {"Hanumanth@usrinfotech.com","bharath@usrinfotech.com",
             		"ravi@okrstars.co","santhosh@usrinfotech.com",
             		"vaidya@usrinfotech.com","subashini@usrinfotech.com"};
             
             
-            for (String recipient : recipients) {
+            for (String recipient : recipients) 
+            {
                 email.addTo(recipient);
             }
             
@@ -183,7 +183,8 @@ public class CustomReportListener implements IReporter{
             System.out.println("Error: Output directory is not set.");
         }
     }
-	public static void Screenshortpath(String subject, String body, String attachmentPath) {
+	public static void Screenshortpath(String subject, String body, String attachmentPath) 
+	{
 		
 		CustomReportListener.attachmentPath = attachmentPath;
 		CustomReportListener.subject=subject;

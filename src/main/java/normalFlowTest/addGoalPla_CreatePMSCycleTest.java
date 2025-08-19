@@ -55,7 +55,7 @@ public class addGoalPla_CreatePMSCycleTest
     }
 
     @Test(priority = 1)
-    public void AddGoalPlan() throws InterruptedException 
+    public void AddGoalPlan() throws InterruptedException
     {    String GoalPalnName = prop.getProperty("GoalPalnName");
     	String EmpGroup = prop.getProperty("EmpGroup");
     	String RatingScale = prop.getProperty("RatingScale");

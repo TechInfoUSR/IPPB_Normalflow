@@ -9,10 +9,19 @@
     <classes>
       <class name="Test_Suit.SmokeTestSuite">
         <methods>
+          <include name="AddPMSCycle"/>
+          <include name="EnableIPPBConfigs"/>
+          <include name="Manager_AddGoalTo_Emp"/>
+          <include name="AddGoalPlan"/>
+          <include name="setUp"/>
+          <include name="DeletionOf_PMSCycleAndGoalPlan"/>
+          <include name="Employee_AssessmentSubmission"/>
+          <include name="Manager_AssessmentSubmissionTo_Skip"/>
+          <include name="Initiate_PMSCycle"/>
           <include name="runOnFailure"/>
           <include name="teardown"/>
+          <include name="Skip_Approval"/>
           <include name="Remove_EmployeesFromGoalPlan"/>
-          <include name="setUp"/>
         </methods>
       </class> <!-- Test_Suit.SmokeTestSuite -->
     </classes>
